@@ -1,10 +1,10 @@
-# World-Cup-Oracle-Terminal-Edition
+# World Cup Oracle — Terminal Edition
 
 > Built in one weekend to avoid paying a crate of beer at Kicktipp. It worked (mostly).
 
 A dependency-free Python CLI that predicts the 2026 FIFA World Cup. It computes Elo ratings from ~49,000 historical international matches, feeds them into a Poisson scoring model, and runs a Monte Carlo simulation of the full 48-team tournament (10,000 runs by default).
 
-My dad is a sports journalist: I grew up with match analysis at the dinner table. When the 2026 group stage started going badly for my Kicktipp predictions, I decided gut feeling wasn't good enough anymore.
+My dad is a sports journalist — I grew up with match analysis at the dinner table. When the 2026 group stage started going badly for my Kicktipp predictions, I decided gut feeling wasn't good enough anymore.
 
 ---
 
@@ -18,13 +18,36 @@ My dad is a sports journalist: I grew up with match analysis at the dinner table
 
 ---
 
-## Requirements
+## Quick start
 
-Python 3.10+ — no third-party packages. Standard library only.
+**1. Clone the repo**
+```bash
+git clone https://github.com/Juliagoihman/World-Cup-Oracle-Terminal-Edition.git
+cd World-Cup-Oracle-Terminal-Edition
+```
+
+**2. Install dependencies**
+```bash
+pip install scikit-learn numpy matplotlib flask
+```
+
+**3. Pick your mode**
+
+| What | Command |
+|------|---------|
+| Terminal CLI + tournament odds | `python oracle.py` |
+| Web UI in browser | `python app.py` |
+| LinkedIn prediction graphic | `python matchday_graphic.py` |
 
 ---
 
-## Run
+## Requirements
+
+Python 3.10+
+
+---
+
+## Terminal CLI
 
 ```bash
 python oracle.py
@@ -35,6 +58,26 @@ python oracle.py --sims 2000   # fewer simulations = faster, slightly noisier
 ```
 
 On first run it downloads the historical results dataset and caches it locally as `.cache_results.csv`. Later runs are offline and instant. Delete the file to refresh.
+
+---
+
+## Web UI
+
+```bash
+python app.py
+```
+
+Opens automatically at `http://localhost:5000` — select two teams from dropdowns and get an instant prediction with animated probability bars.
+
+---
+
+## LinkedIn graphic
+
+```bash
+python matchday_graphic.py
+```
+
+Enter two teams and it saves a ready-to-post PNG with flags, win probabilities, expected goals, and most likely score.
 
 ---
 
@@ -108,3 +151,4 @@ Formula 1 predictor, or a Euro 2028 simulator. F1 is a messier problem — const
 ---
 
 > Predictions are a probabilistic model for entertainment. Not betting advice. My Kicktipp ranking going up is purely coincidental.
+
