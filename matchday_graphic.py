@@ -78,7 +78,7 @@ def generate_graphic(team_a: str, team_b: str, output_path: str = "prediction.pn
     # ── Header ───────────────────────────────────────────────────────────────
     ax.text(5, 4.82, 'WORLD CUP ORACLE  ·  2026 FIFA WORLD CUP',
             ha='center', va='center', fontsize=7.5, color='#6b6b80',
-            fontweight='bold', letter_spacing=1, zorder=6,
+            fontweight='bold', zorder=6,
             fontfamily='monospace')
 
     ax.text(5, 4.48, 'KNOCKOUT STAGE PREDICTION',
