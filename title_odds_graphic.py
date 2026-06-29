@@ -17,6 +17,9 @@ from worldcup2026 import WC2026_TEAMS
 matplotlib.rcParams['font.family'] = 'sans-serif'
 matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 
+OUTPUT_DIR = r"C:\Users\julia\OneDrive\Dokumente\WorldCupOracle"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 print("Loading model (takes ~30 seconds)...")
 all_ratings, match_count, history = compute_elo_ratings(record_history=True)
 RATINGS = get_wc_team_ratings(all_ratings)
@@ -82,8 +85,8 @@ fig.text(0.5, 0.01,
 
 plt.tight_layout(rect=[0.03, 0.03, 1, 0.93])
 
-out = f"title_odds_{datetime.now().strftime('%Y%m%d_%H%M')}.png"
+out = os.path.join(OUTPUT_DIR, f"title_odds_{datetime.now().strftime('%Y%m%d_%H%M')}.png")
 plt.savefig(out, dpi=180, bbox_inches="tight", facecolor="white", edgecolor="none")
 plt.close()
 print(f"\nSaved: {out}")
-print("Ready to post on LinkedIn!")
+
